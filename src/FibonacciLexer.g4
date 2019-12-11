@@ -30,6 +30,13 @@ ASIGNAR : ':=';
 OPLOGICOS : '>'|'<'|'>='|'<='|'=='|'!=';
 COMILLAS : '"';
 COMA : ',';
+
+//ARRAYS
+CI : '[';   //Insertados nuevos corchetes para indicar elementos del array
+CD : ']';
+NUM_ELEM_ARRAY: CI NUMERO CD;
+
+
 DOSPUNTOS : ':';
 FINALSENTENCIA : ';';
 IDENTIF: [a-zA-Z](([a-zA-Z0-9] | '_')*)?;

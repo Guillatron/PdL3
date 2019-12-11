@@ -2,49 +2,54 @@ parser grammar FibonacciParser;
 options{
 tokenVocab = FibonacciLexer;
     }
-prog : (incluir FINALSENTENCIA| definicionfuncion | COMENTARIOBLOQUE | COMENTARIOLINEA)+;
+prog : (incluir FINALSENTENCIA| definicionfuncion)+;
+incluir: PR_INCLUDE IDENTIF;
+
+/*
+function nombre(tipo arg1, tipo arg2):
+begin
+    ...
+end
+*/
+definicionfuncion: (PR_FUNCTION IDENTIF PI argumentos PD DOSPUNTOS PR_VOID PR_BEGIN (sentencia  | bifurcacion)* retornar? PR_END);
+
+bifurcacion: mientras | si; //Alteraciones del flujo normal del codigo Ifs, Fors, Whiles ...
+
+sentencia: (asignacion | declaracion | llamadafuncion) FINALSENTENCIA; //Una linea de codigo efectiva
+
+declaracion : PR_TIPO variable ((ASIGNAR expr)? | NUM_ELEM_ARRAY ASIGNAR array);
+asignacion: variable ASIGNAR expr;
+llamadafuncion: IDENTIF PI parametros PD;
+
 expr : llamadafuncion 
-|llamadavariable
+| variable
 | expr(MULT|DIV) expr
 | expr(SUMA|RESTA) expr
+| expr OPLOGICOS expr
 | CADENA 
-|NUMERO;
+| NUMERO;
 
-llamadafuncion: IDENTIF PI parametros PD;
-llamadavariable : IDENTIF;
 parametros: (expr(COMA (expr))*)?;
-parametros_definicion: (PR_TIPO (expr)(COMA(PR_TIPO expr))*)?;
+argumentos: ( PR_TIPO variable (COMA(PR_TIPO variable))*)?;
 
 
-expr_sin_devolver: asignacion 
-|declaracion
-|declaracion_asignacion
-| definicionfuncion
-|llaves  
-| retornar 
-| incluir 
-|logica 
-| mientras 
-| COMENTARIOBLOQUE 
-| COMENTARIOLINEA
-|si
-|variables_en_cadena;
+si : PR_IF PI expr PD PR_THEN (sentencia | bifurcacion)* sino? PR_ENDIF ;
+sino : PR_ELSE (sentencia | bifurcacion)*;
 
-llaves : PR_BEGIN (expr FINALSENTENCIA | expr_sin_devolver)* PR_END;
-si : PR_IF PI logica PD PR_THEN (expr FINALSENTENCIA| expr_sin_devolver)* sino? PR_ENDIF ;
-sino : PR_ELSE (expr FINALSENTENCIA| expr_sin_devolver)*;
-declaracion_asignacion: PR_TIPO IDENTIF ASIGNAR expr FINALSENTENCIA;
-declaracion : PR_TIPO IDENTIF FINALSENTENCIA ;
-asignacion: IDENTIF ASIGNAR expr FINALSENTENCIA;
-definicionfuncion: (PR_FUNCTION IDENTIF PI parametros_definicion PD DOSPUNTOS PR_VOID PR_BEGIN (expr FINALSENTENCIA | expr_sin_devolver)* PR_END)| PR_FUNCTION IDENTIF PI parametros_definicion PD DOSPUNTOS PR_TIPO PR_BEGIN (expr FINALSENTENCIA|expr_sin_devolver)* retornar PR_END; 
-retornar : PR_DEVOLVER PI  parametros PD FINALSENTENCIA;
-incluir: PR_INCLUDE IDENTIF;
-logica: (((NUMERO|llamadafuncion| llamadavariable)(OPLOGICOS)(NUMERO|llamadafuncion|llamadavariable))|TRUE|FALSE);
-mientras:PR_WHILE PI logica PD (cuerpomientraslinea|cuerpomientras);
-cuerpomientras: PR_BEGIN (expr FINALSENTENCIA| expr_sin_devolver)* PR_END;
-cuerpomientraslinea: (expr FINALSENTENCIA| expr_sin_devolver)*;
-variables_en_cadena: PI COMILLAS TIPO_CADENA COMILLAS COMA llamadavariable PD;
+//ARRAYS
+nElemArray: CI NUMERO CD;
+array: PI ((NUMERO COMA)* NUMERO)? PD;    //Supongamos que de momento solo admite arrays de nums
+retornar : PR_DEVOLVER expr? FINALSENTENCIA;    //Devolver x;
+mientras:PR_WHILE PI expr PD PR_BEGIN (sentencia | bifurcacion)* PR_END;
 
+variable : IDENTIF;
+
+/*Deficiencias de la implementación
+    Se permite definir una función dentro de otra, funciones dentro de ifs, barra libre de funciones
+    Se permiten sentencias como "variable;"
+    Estan incluidos los comentarios en la sintaxis del parser ¿?
+
+*/
 
 
 

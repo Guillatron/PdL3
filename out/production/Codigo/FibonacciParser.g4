@@ -34,6 +34,12 @@ llaves : PR_BEGIN (expr FINALSENTENCIA | expr_sin_devolver)* PR_END;
 si : PR_IF PI logica PD PR_THEN (expr FINALSENTENCIA| expr_sin_devolver)* sino? PR_ENDIF ;
 sino : PR_ELSE (expr FINALSENTENCIA| expr_sin_devolver)*;
 declaracion_asignacion: PR_TIPO IDENTIF ASIGNAR expr FINALSENTENCIA;
+declaracion_array: PR_TIPO IDENTIF NUM_ELEM_ARRAY ASIGNAR array FINALSENTENCIA;
+
+//ARRAYS
+nElemArray: CI NUMERO CD;
+array: PI ((NUMERO COMA)* NUMERO)? PD;    //Supongamos que de momento solo admite arrays de nums
+
 declaracion : PR_TIPO IDENTIF FINALSENTENCIA ;
 asignacion: IDENTIF ASIGNAR expr FINALSENTENCIA;
 definicionfuncion: (PR_FUNCTION IDENTIF PI parametros_definicion PD DOSPUNTOS PR_VOID PR_BEGIN (expr FINALSENTENCIA | expr_sin_devolver)* PR_END)| PR_FUNCTION IDENTIF PI parametros_definicion PD DOSPUNTOS PR_TIPO PR_BEGIN (expr FINALSENTENCIA|expr_sin_devolver)* retornar PR_END; 

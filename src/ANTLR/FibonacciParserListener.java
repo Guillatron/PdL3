@@ -1,4 +1,4 @@
-package ANTLR;// Generated from C:/Programacion/Universidad/Procesadores del lenguaje/Codigo/src\ANTLR.FibonacciParser.g4 by ANTLR 4.7.2
+package ANTLR;// Generated from C:/Programacion/Universidad/Procesadores del lenguaje/Codigo/src\FibonacciParser.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -17,105 +17,45 @@ public interface FibonacciParserListener extends ParseTreeListener {
 	 */
 	void exitProg(FibonacciParser.ProgContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#expr}.
+	 * Enter a parse tree produced by {@link FibonacciParser#incluir}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr(FibonacciParser.ExprContext ctx);
+	void enterIncluir(FibonacciParser.IncluirContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#expr}.
+	 * Exit a parse tree produced by {@link FibonacciParser#incluir}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr(FibonacciParser.ExprContext ctx);
+	void exitIncluir(FibonacciParser.IncluirContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#llamadafuncion}.
+	 * Enter a parse tree produced by {@link FibonacciParser#definicionfuncion}.
 	 * @param ctx the parse tree
 	 */
-	void enterLlamadafuncion(FibonacciParser.LlamadafuncionContext ctx);
+	void enterDefinicionfuncion(FibonacciParser.DefinicionfuncionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#llamadafuncion}.
+	 * Exit a parse tree produced by {@link FibonacciParser#definicionfuncion}.
 	 * @param ctx the parse tree
 	 */
-	void exitLlamadafuncion(FibonacciParser.LlamadafuncionContext ctx);
+	void exitDefinicionfuncion(FibonacciParser.DefinicionfuncionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#llamadavariable}.
+	 * Enter a parse tree produced by {@link FibonacciParser#bifurcacion}.
 	 * @param ctx the parse tree
 	 */
-	void enterLlamadavariable(FibonacciParser.LlamadavariableContext ctx);
+	void enterBifurcacion(FibonacciParser.BifurcacionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#llamadavariable}.
+	 * Exit a parse tree produced by {@link FibonacciParser#bifurcacion}.
 	 * @param ctx the parse tree
 	 */
-	void exitLlamadavariable(FibonacciParser.LlamadavariableContext ctx);
+	void exitBifurcacion(FibonacciParser.BifurcacionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#parametros}.
+	 * Enter a parse tree produced by {@link FibonacciParser#sentencia}.
 	 * @param ctx the parse tree
 	 */
-	void enterParametros(FibonacciParser.ParametrosContext ctx);
+	void enterSentencia(FibonacciParser.SentenciaContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#parametros}.
+	 * Exit a parse tree produced by {@link FibonacciParser#sentencia}.
 	 * @param ctx the parse tree
 	 */
-	void exitParametros(FibonacciParser.ParametrosContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#parametros_definicion}.
-	 * @param ctx the parse tree
-	 */
-	void enterParametros_definicion(FibonacciParser.Parametros_definicionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#parametros_definicion}.
-	 * @param ctx the parse tree
-	 */
-	void exitParametros_definicion(FibonacciParser.Parametros_definicionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#expr_sin_devolver}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_sin_devolver(FibonacciParser.Expr_sin_devolverContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#expr_sin_devolver}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_sin_devolver(FibonacciParser.Expr_sin_devolverContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#llaves}.
-	 * @param ctx the parse tree
-	 */
-	void enterLlaves(FibonacciParser.LlavesContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#llaves}.
-	 * @param ctx the parse tree
-	 */
-	void exitLlaves(FibonacciParser.LlavesContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#si}.
-	 * @param ctx the parse tree
-	 */
-	void enterSi(FibonacciParser.SiContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#si}.
-	 * @param ctx the parse tree
-	 */
-	void exitSi(FibonacciParser.SiContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#sino}.
-	 * @param ctx the parse tree
-	 */
-	void enterSino(FibonacciParser.SinoContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#sino}.
-	 * @param ctx the parse tree
-	 */
-	void exitSino(FibonacciParser.SinoContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#declaracion_asignacion}.
-	 * @param ctx the parse tree
-	 */
-	void enterDeclaracion_asignacion(FibonacciParser.Declaracion_asignacionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#declaracion_asignacion}.
-	 * @param ctx the parse tree
-	 */
-	void exitDeclaracion_asignacion(FibonacciParser.Declaracion_asignacionContext ctx);
+	void exitSentencia(FibonacciParser.SentenciaContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link FibonacciParser#declaracion}.
 	 * @param ctx the parse tree
@@ -137,15 +77,85 @@ public interface FibonacciParserListener extends ParseTreeListener {
 	 */
 	void exitAsignacion(FibonacciParser.AsignacionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#definicionfuncion}.
+	 * Enter a parse tree produced by {@link FibonacciParser#llamadafuncion}.
 	 * @param ctx the parse tree
 	 */
-	void enterDefinicionfuncion(FibonacciParser.DefinicionfuncionContext ctx);
+	void enterLlamadafuncion(FibonacciParser.LlamadafuncionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#definicionfuncion}.
+	 * Exit a parse tree produced by {@link FibonacciParser#llamadafuncion}.
 	 * @param ctx the parse tree
 	 */
-	void exitDefinicionfuncion(FibonacciParser.DefinicionfuncionContext ctx);
+	void exitLlamadafuncion(FibonacciParser.LlamadafuncionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FibonacciParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr(FibonacciParser.ExprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FibonacciParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr(FibonacciParser.ExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FibonacciParser#parametros}.
+	 * @param ctx the parse tree
+	 */
+	void enterParametros(FibonacciParser.ParametrosContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FibonacciParser#parametros}.
+	 * @param ctx the parse tree
+	 */
+	void exitParametros(FibonacciParser.ParametrosContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FibonacciParser#argumentos}.
+	 * @param ctx the parse tree
+	 */
+	void enterArgumentos(FibonacciParser.ArgumentosContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FibonacciParser#argumentos}.
+	 * @param ctx the parse tree
+	 */
+	void exitArgumentos(FibonacciParser.ArgumentosContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FibonacciParser#si}.
+	 * @param ctx the parse tree
+	 */
+	void enterSi(FibonacciParser.SiContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FibonacciParser#si}.
+	 * @param ctx the parse tree
+	 */
+	void exitSi(FibonacciParser.SiContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FibonacciParser#sino}.
+	 * @param ctx the parse tree
+	 */
+	void enterSino(FibonacciParser.SinoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FibonacciParser#sino}.
+	 * @param ctx the parse tree
+	 */
+	void exitSino(FibonacciParser.SinoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FibonacciParser#nElemArray}.
+	 * @param ctx the parse tree
+	 */
+	void enterNElemArray(FibonacciParser.NElemArrayContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FibonacciParser#nElemArray}.
+	 * @param ctx the parse tree
+	 */
+	void exitNElemArray(FibonacciParser.NElemArrayContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FibonacciParser#array}.
+	 * @param ctx the parse tree
+	 */
+	void enterArray(FibonacciParser.ArrayContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FibonacciParser#array}.
+	 * @param ctx the parse tree
+	 */
+	void exitArray(FibonacciParser.ArrayContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link FibonacciParser#retornar}.
 	 * @param ctx the parse tree
@@ -157,26 +167,6 @@ public interface FibonacciParserListener extends ParseTreeListener {
 	 */
 	void exitRetornar(FibonacciParser.RetornarContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#incluir}.
-	 * @param ctx the parse tree
-	 */
-	void enterIncluir(FibonacciParser.IncluirContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#incluir}.
-	 * @param ctx the parse tree
-	 */
-	void exitIncluir(FibonacciParser.IncluirContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#logica}.
-	 * @param ctx the parse tree
-	 */
-	void enterLogica(FibonacciParser.LogicaContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#logica}.
-	 * @param ctx the parse tree
-	 */
-	void exitLogica(FibonacciParser.LogicaContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link FibonacciParser#mientras}.
 	 * @param ctx the parse tree
 	 */
@@ -187,33 +177,13 @@ public interface FibonacciParserListener extends ParseTreeListener {
 	 */
 	void exitMientras(FibonacciParser.MientrasContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#cuerpomientras}.
+	 * Enter a parse tree produced by {@link FibonacciParser#variable}.
 	 * @param ctx the parse tree
 	 */
-	void enterCuerpomientras(FibonacciParser.CuerpomientrasContext ctx);
+	void enterVariable(FibonacciParser.VariableContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#cuerpomientras}.
+	 * Exit a parse tree produced by {@link FibonacciParser#variable}.
 	 * @param ctx the parse tree
 	 */
-	void exitCuerpomientras(FibonacciParser.CuerpomientrasContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#cuerpomientraslinea}.
-	 * @param ctx the parse tree
-	 */
-	void enterCuerpomientraslinea(FibonacciParser.CuerpomientraslineaContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#cuerpomientraslinea}.
-	 * @param ctx the parse tree
-	 */
-	void exitCuerpomientraslinea(FibonacciParser.CuerpomientraslineaContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FibonacciParser#variables_en_cadena}.
-	 * @param ctx the parse tree
-	 */
-	void enterVariables_en_cadena(FibonacciParser.Variables_en_cadenaContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FibonacciParser#variables_en_cadena}.
-	 * @param ctx the parse tree
-	 */
-	void exitVariables_en_cadena(FibonacciParser.Variables_en_cadenaContext ctx);
+	void exitVariable(FibonacciParser.VariableContext ctx);
 }
