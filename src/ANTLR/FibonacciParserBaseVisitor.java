@@ -1,5 +1,4 @@
-package ANTLR;
-// Generated from C:/Programacion/Universidad/Procesadores del lenguaje/Codigo/src\FibonacciParser.g4 by ANTLR 4.7.2
+package ANTLR;// Generated from C:/Programacion/Universidad/Procesadores del lenguaje/Codigo/src\FibonacciParser.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**

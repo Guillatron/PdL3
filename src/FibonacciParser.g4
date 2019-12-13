@@ -11,23 +11,23 @@ begin
     ...
 end
 */
-definicionfuncion: (PR_FUNCTION IDENTIF PI argumentos PD DOSPUNTOS PR_VOID PR_BEGIN (sentencia  | bifurcacion)* retornar? PR_END);
+definicionfuncion: (PR_FUNCTION IDENTIF PI argumentos PD DOSPUNTOS PR_TIPO PR_BEGIN (sentencia  | bifurcacion)* retornar? PR_END);
 
 bifurcacion: mientras | si; //Alteraciones del flujo normal del codigo Ifs, Fors, Whiles ...
 
-sentencia: (asignacion | declaracion | llamadafuncion) FINALSENTENCIA; //Una linea de codigo efectiva
+sentencia: (asignacion | declaracion | llamadafuncion) FINALSENTENCIA; //Una linea de codigo efectiva, las que acaban en ;
 
-declaracion : PR_TIPO variable ((ASIGNAR expr)? | NUM_ELEM_ARRAY ASIGNAR array);
+declaracion : PR_TIPO variable ((ASIGNAR expr)? | NUM_ELEM_ARRAY ASIGNAR array); //Se declara y/o inicializa un valor
 asignacion: variable ASIGNAR expr;
 llamadafuncion: IDENTIF PI parametros PD;
 
-expr : llamadafuncion 
-| variable
-| expr(MULT|DIV) expr
-| expr(SUMA|RESTA) expr
-| expr OPLOGICOS expr
-| CADENA 
-| NUMERO;
+expr : llamadafuncion # Default
+| variable  # Default
+| expr(MULT|DIV) expr # Operacion
+| expr(SUMA|RESTA) expr # Operacion     //Simplemente para identificar que estas 3 son operaciones
+| expr OPLOGICOS expr #Operacion
+| CADENA    # Default
+| NUMERO   # Default;
 
 parametros: (expr(COMA (expr))*)?;
 argumentos: ( PR_TIPO variable (COMA(PR_TIPO variable))*)?;
@@ -39,11 +39,10 @@ sino : PR_ELSE (sentencia | bifurcacion)*;
 //ARRAYS
 nElemArray: CI NUMERO CD;
 array: PI ((NUMERO COMA)* NUMERO)? PD;    //Supongamos que de momento solo admite arrays de nums
-retornar : PR_DEVOLVER expr? FINALSENTENCIA;    //Devolver x;
+retornar : PR_DEVOLVER (PI expr PD)? FINALSENTENCIA;    //Devolver x;
 mientras:PR_WHILE PI expr PD PR_BEGIN (sentencia | bifurcacion)* PR_END;
 
 variable : IDENTIF;
-
 /*Deficiencias de la implementación
     Se permite definir una función dentro de otra, funciones dentro de ifs, barra libre de funciones
     Se permiten sentencias como "variable;"

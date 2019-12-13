@@ -1,3 +1,5 @@
+package Default;
+
 import ANTLR.FibonacciLexer;
 import ANTLR.FibonacciParser;
 import org.antlr.v4.runtime.*;
@@ -14,10 +16,9 @@ public class Analizador {
         parser = new FibonacciParser(new CommonTokenStream(lexer));
 
         ParseTree arbol = parser.prog();
-        TablaSimbolos escuchador = new TablaSimbolos();
+        TablaSimbolos tablaSimbolos = new TablaSimbolos();
         ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(escuchador, arbol);
-        escuchador.resumen();
-
+        walker.walk(tablaSimbolos, arbol);
+        tablaSimbolos.resumen();
     }
 }

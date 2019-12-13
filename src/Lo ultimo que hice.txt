@@ -1,0 +1,15 @@
+Creo que voy a implementar los bucles y las funciones a partir de una
+clase padre "Estructura", esta será capaz de almacenar variables,
+líneas de código y otras estructuras.
+
+Pretendo modelar con eso tanto funciones como bifurcaciones.
+
+También he usado un truco para identificar reglas más fácilmente
+regla: token1 #exp1
+| token2 #exp2
+| token3 #exp3
+
+El listener creará métodos para cuando se entre y salga
+de estos casos (gracias Luke UwU).
+
+PD Ojalá salga Kanazawa

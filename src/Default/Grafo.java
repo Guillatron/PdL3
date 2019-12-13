@@ -1,5 +1,9 @@
+package Default;
+
 import java.util.ArrayList;
 
+
+//De momento no se usa :/
 public class Grafo<T>{
     private T raiz;
     private ArrayList<Grafo<T>> hijos;
@@ -29,6 +33,4 @@ public class Grafo<T>{
         hijos.add(hijo);
     }
 
-    public static void main(String[] args) {
-    }
 }

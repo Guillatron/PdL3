@@ -5,7 +5,7 @@ PR_BEGIN: 'begin';
 PR_END : 'end';
 PR_WHILE : 'while';
 PR_FUNCTION: 'function';
-PR_TIPO: 'numero' | 'cadena';
+PR_TIPO: 'numero' | 'cadena' | 'void';
 PR_INCLUDE : 'include';
 PR_DEVOLVER : 'devolver';
 PR_VOID: 'void';
